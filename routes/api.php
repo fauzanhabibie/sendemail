@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Mail\SendEmail; 
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('send-email', function(){
     $email =  new SendEmail(); 
     Mail::to('viruzan.game@gmail.com')->send($email); 
-
+    
     return 'success'; 
 
 }); 

@@ -9,8 +9,9 @@
 </head>
 <body>
     <h1>Data Karyawan</h1>
-    @if ($karyawan && count($karyawan) > 0)
-    <table border="1">
+    @if ($karyawan && is_array($karyawan))
+
+    <table>
         <thead>
             <tr>
                 <th>Nama</th>
@@ -19,17 +20,20 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($karyawan as $key => $data)
+            @foreach($karyawan as $data)
             <tr>
-                <td>{{ $data['nama'] }}</td>
-                <td>{{ $data['alamat'] }}</td>
+                <td>{{ $data['nama'] ?? '' }}</td>
+                <td>{{ $data['alamat'] ?? '' }}</td>
                 <!-- Tambahkan kolom-kolom lain yang diperlukan -->
             </tr>
             @endforeach
         </tbody>
     </table>
-    @else
+
+@else
+
     <p>Tidak ada data karyawan.</p>
-    @endif
+
+@endif
 </body>
 </html>
